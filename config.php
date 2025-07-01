@@ -19,7 +19,7 @@ function safe_log($message, $filePath = "logs/db_error.log") {
 	try{
 		$conn = new PDO("mysql:host=$host;dbname=$dbName",$username,$dbPassword);
 		$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		echo "Succefully";
+		
 	}
 	catch(PDOException $e) {
     safe_log($e->getMessage()."\n");
