@@ -2,18 +2,24 @@
 	
 	require "config.php";
 
+
 	if(isset($_POST['submit'])){
 		if($_POST['url'] == ''){
 			echo "3mr 3mr 3ad clicker";
 		} else {
 			$url = $_POST['url'];
 
-			$insert = prepare("INSERT INTO urls (url) VALUES (:url)");
+			$insert = $conn->prepare("INSERT INTO urls (url) VALUES (:url)");
 
 			$insert->execute([':url' => $url]);
+
 		}
 	}
+$select = $conn->query('SELECT * FROM urls');
 
+			$select->execute();
+
+			$rows = $select->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
@@ -28,11 +34,11 @@
 <body>
 	
 		<div class="container">
-			<form method="POST" action="insert.php">
+			<form method="POST" action="index.php">
 
 				<div class="row g-3 align-items-center mt-4 mb-5">
 				  <div class="col-auto">
-				    <label for="inputPassword6" class="col-form-label">Enter a task</label>
+				    <label for="inputPassword6" class="col-form-label">Enter the URL</label>
 				  </div>
 				  <div class="col-2">
 				    <input type="text" name="url" id="inputPassword6" class="form-control">
@@ -49,16 +55,19 @@
   <thead>
     <tr>
       <th scope="col">Numbers</th>
-      <th scope="col">Tasks</th>
-      <th scope="col">Action</th>
+      <th scope="col">Long URL</th>
+      <th scope="col">Short URL</th>
+      <th scope="col">Clicks</th>
     </tr>
   </thead>
   <tbody>
+  	<?php foreach($rows as $row) : ?>
   	<tr>
-  	 <td scope="col">Numbers</td>
-     <td scope="col">Tasks</td>
-     <td scope="col">Action</td>
+  	 <td scope="col"><?php echo $row->id; ?></td>
+     <td scope="col"><?php echo $row->url; ?></td>
+     <td scope="col"><?php echo $row->clicks; ?></td>
      </tr>
+    <?php endforeach; ?>
   </tbody>
 </table>
 </div>
