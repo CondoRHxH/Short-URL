@@ -23,6 +23,8 @@ $select = $conn->query('SELECT * FROM urls');
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +35,7 @@ $select = $conn->query('SELECT * FROM urls');
 </head>
 <body>
 	
-		<div class="container">
+		<div class="container" id="refresh">
 			<form method="POST" action="index.php">
 
 				<div class="row g-3 align-items-center mt-4 mb-5">
@@ -66,7 +68,7 @@ $select = $conn->query('SELECT * FROM urls');
   	 <td scope="col"><?php echo $row->id; ?></td>
      <td scope="col"><?php echo $row->url; ?></td>
      <td scope="col">
-  			<a href="http://localhost/url/cnx/?id=<?php echo $row->id; ?>" target="_blank">
+  			<a href="http://localhost/url/cnx/?id=<?php echo $row->id; ?>" target="_blank" >
     			http:/bit.ly/<?php echo $row->id; ?>
   			</a>
 			</td>
@@ -74,9 +76,21 @@ $select = $conn->query('SELECT * FROM urls');
 
      </tr>
     <?php endforeach; ?>
+
   </tbody>
 </table>
 </div>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function() {
+    setInterval(function() {
+        $("#refresh").load('index.php #refresh > *');
+    }, 5000);
+});
+
+	</script>
 </body>
 </html>
