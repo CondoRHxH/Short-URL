@@ -65,7 +65,13 @@ $select = $conn->query('SELECT * FROM urls');
   	<tr>
   	 <td scope="col"><?php echo $row->id; ?></td>
      <td scope="col"><?php echo $row->url; ?></td>
+     <td scope="col">
+  			<a href="http://localhost/url/cnx/?id=<?php echo $row->id; ?>" target="_blank">
+    			http:/bit.ly/<?php echo $row->id; ?>
+  			</a>
+			</td>
      <td scope="col"><?php echo $row->clicks; ?></td>
+
      </tr>
     <?php endforeach; ?>
   </tbody>
