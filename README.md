@@ -1,38 +1,41 @@
 # 🔗 Short URL - PHP
 
-A lightweight and fast URL shortener built with PHP.
-
-Transform long, ugly links into clean and shareable short URLs.
+A lightweight and fast URL shortener built with PHP. Transform long, ugly links into clean and shareable short URLs.
 
 ---
 
 ## 🚀 Features
 
-- Convert long URLs into short codes
-- Redirect short links to original URLs
-- Store links in database (MySQL)
-- Simple and fast logic
-- Clean project structure
+* **URL Conversion:** Convert long URLs into unique short codes.
+* **Redirection:** Instant redirect from short links to original destinations.
+* **Database Integration:** Securely store links using MySQL.
+* **Performance:** Simple, fast, and lightweight logic.
+* **Organization:** Clean and modular project structure.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- PHP
-- MySQL
-- HTML / CSS
-- Apache (XAMPP / Laragon)
+* **Language:** PHP
+* **Database:** MySQL
+* **Frontend:** HTML / CSS
+* **Server:** Apache (XAMPP / Laragon / WAMP)
 
+---
+
+## 📂 Project Structure
+
+```text
 Short-URL/
 ├── cnx/
-│   └── index.php
-│
+│   └── index.php       # Database connection logic
 ├── logs/
-│   └── db_error.log
-│
-├── config.php        # Application configuration
-├── index.php         # Main entry point
-└── README.md
+│   └── db_error.log    # Error tracking
+├── config.php          # Application configuration
+├── index.php           # Main entry point & Logic
+└── README.md           # Documentation
+
+---
 
 ## ⚙️ How It Works
 
@@ -46,33 +49,5 @@ Short-URL/
    The system fetches original URL and redirects using:
 
    header("Location: original_url");
-
----
-
-## ▶️ Installation
-
-1. Clone repository:
-
-   git clone https://github.com/CondoRHxH/Short-URL.git
-
-2. Move project to:
-
-   htdocs (XAMPP)  
-   or  
-   www (Laragon)
-
-3. Create database:
-
-   CREATE DATABASE shorturl;
-
-4. Import SQL file (if available).
-
-5. Update database credentials in:
-
-   config/database.php
-
-6. Open in browser:
-
-   http://localhost/Short-URL/
 
 ---
