@@ -25,22 +25,15 @@ Transform long, ugly links into clean and shareable short URLs.
 
 ---
 
-## 📂 Project Structure
-
-Short-URL/
-│
 ├── cnx/
-│   └── index.php
+│ └── index.php
 │
 ├── logs/
-│   ├── db_error.log
+│ └── db_error.log
 │
-├── config.php      # Configuration settings
-├── index.php
-│
+├── config.php # Application configuration
+├── index.php # Main entry point
 └── README.md
-
----
 
 ## ⚙️ How It Works
 
